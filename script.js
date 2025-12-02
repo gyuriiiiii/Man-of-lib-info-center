@@ -49,16 +49,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate circular progress charts when visible
     const circleObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
                 const chart = entry.target;
                 const percent = chart.getAttribute('data-percent');
                 const circle = chart.querySelector('.circle');
+                const percentageText = chart.querySelector('.percentage');
+
                 if (circle && percent) {
-                    circle.style.strokeDasharray = `${percent}, 100`;
+                    // Animate the circle progress
+                    setTimeout(() => {
+                        circle.style.strokeDasharray = `${percent}, 100`;
+                    }, 300);
+
+                    // Animate the percentage number
+                    if (percentageText) {
+                        let currentPercent = 0;
+                        const targetPercent = parseFloat(percent);
+                        const duration = 1500;
+                        const increment = targetPercent / (duration / 16);
+
+                        setTimeout(() => {
+                            const timer = setInterval(() => {
+                                currentPercent += increment;
+                                if (currentPercent >= targetPercent) {
+                                    currentPercent = targetPercent;
+                                    clearInterval(timer);
+                                }
+                                percentageText.textContent = currentPercent.toFixed(1) + '%';
+                            }, 16);
+                        }, 800);
+                    }
                 }
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     document.querySelectorAll('.circle-chart').forEach(chart => {
         circleObserver.observe(chart);
@@ -70,74 +95,71 @@ document.addEventListener('DOMContentLoaded', function() {
         level.style.animationDelay = `${index * 0.1}s`;
     });
 
-    // Counter animation for statistics
-    function animateCounter(element, target, duration = 2000) {
-        let current = 0;
-        const increment = target / (duration / 16);
-        const isNumber = !isNaN(target);
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-
-            if (isNumber) {
-                element.textContent = Math.floor(current);
-            }
-        }, 16);
-    }
-
     // Observe stat cards for counter animation
     const statObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                 entry.target.classList.add('counted');
+                entry.target.classList.add('visible');
                 const numberElement = entry.target.querySelector('.stat-number');
                 const text = numberElement.textContent;
 
-                // Handle different number formats
-                if (text.includes('조원')) {
-                    const match = text.match(/(\d+)/);
-                    if (match) {
-                        let count = 0;
-                        const target = parseInt(match[1]);
-                        const interval = setInterval(() => {
-                            count++;
-                            numberElement.textContent = count + '조원';
-                            if (count >= target) clearInterval(interval);
-                        }, 100);
+                // Add stagger effect with delay
+                const index = Array.from(document.querySelectorAll('.stat-card')).indexOf(entry.target);
+
+                setTimeout(() => {
+                    // Handle different number formats
+                    if (text.includes('조원')) {
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            let count = 0;
+                            const target = parseInt(match[1]);
+                            const interval = setInterval(() => {
+                                count++;
+                                numberElement.textContent = count + '조원';
+                                if (count >= target) {
+                                    clearInterval(interval);
+                                    // Add pulse effect on completion
+                                    numberElement.style.animation = 'pulse 0.5s ease-out';
+                                }
+                            }, 80);
+                        }
+                    } else if (text.includes('%')) {
+                        const match = text.match(/([\d.]+)/);
+                        if (match) {
+                            let count = 0;
+                            const target = parseFloat(match[1]);
+                            const interval = setInterval(() => {
+                                count += 0.8;
+                                numberElement.textContent = count.toFixed(1) + '%';
+                                if (count >= target) {
+                                    numberElement.textContent = target + '%';
+                                    clearInterval(interval);
+                                    numberElement.style.animation = 'pulse 0.5s ease-out';
+                                }
+                            }, 15);
+                        }
+                    } else {
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            let count = 0;
+                            const target = parseInt(match[1]);
+                            const step = Math.ceil(target / 60);
+                            const interval = setInterval(() => {
+                                count += step;
+                                if (count >= target) {
+                                    count = target;
+                                    clearInterval(interval);
+                                    numberElement.style.animation = 'pulse 0.5s ease-out';
+                                }
+                                numberElement.textContent = count;
+                            }, 25);
+                        }
                     }
-                } else if (text.includes('%')) {
-                    const match = text.match(/([\d.]+)/);
-                    if (match) {
-                        let count = 0;
-                        const target = parseFloat(match[1]);
-                        const interval = setInterval(() => {
-                            count += 0.6;
-                            numberElement.textContent = count.toFixed(1) + '%';
-                            if (count >= target) {
-                                numberElement.textContent = target + '%';
-                                clearInterval(interval);
-                            }
-                        }, 20);
-                    }
-                } else {
-                    const match = text.match(/(\d+)/);
-                    if (match) {
-                        let count = 0;
-                        const target = parseInt(match[1]);
-                        const interval = setInterval(() => {
-                            count++;
-                            numberElement.textContent = count;
-                            if (count >= target) clearInterval(interval);
-                        }, 30);
-                    }
-                }
+                }, index * 150);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     document.querySelectorAll('.stat-card').forEach(card => {
         statObserver.observe(card);
