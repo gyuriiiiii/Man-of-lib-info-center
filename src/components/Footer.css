@@ -1,0 +1,11 @@
+.footer {
+  background: var(--dark-green);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.9;
+}

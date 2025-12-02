@@ -1,0 +1,55 @@
+.research-bg {
+  background-color: var(--bg-light);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 5px solid var(--primary-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 40px rgba(45, 95, 63, 0.15);
+}
+
+.card h3 {
+  color: var(--primary-green);
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.card p {
+  color: var(--text-gray);
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

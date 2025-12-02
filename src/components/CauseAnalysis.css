@@ -1,0 +1,100 @@
+.cause-analysis {
+  background: var(--bg-light);
+  padding: 100px 0;
+}
+
+.pyramid {
+  max-width: 800px;
+  margin: 60px auto 40px;
+  position: relative;
+}
+
+.pyramid-level {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  padding: 20px 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pyramid-level:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.pyramid-level.level-1 {
+  width: 100%;
+}
+
+.pyramid-level.level-2 {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pyramid-level.level-3 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pyramid-level.level-4 {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pyramid-level.level-5 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.level-number {
+  width: 45px;
+  height: 45px;
+  background: var(--primary-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.level-content {
+  flex: 1;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.pyramid-caption {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.9;
+  color: var(--text-gray);
+  font-size: 1.05rem;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .pyramid-level {
+    padding: 15px 20px;
+  }
+
+  .level-content {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,73 @@
+.importance {
+  background: white;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 50px;
+  align-items: start;
+}
+
+.left-content h3,
+.right-content h3 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.role-list {
+  list-style: none;
+}
+
+.role-list li {
+  padding: 20px;
+  margin-bottom: 15px;
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-green);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.role-list li:hover {
+  background: white;
+  box-shadow: var(--shadow);
+  transform: translateX(10px);
+}
+
+.role-list li strong {
+  color: var(--primary-green);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.importance-box {
+  background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.importance-box h3 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.importance-box p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 768px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

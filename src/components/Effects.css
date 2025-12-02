@@ -1,0 +1,72 @@
+.effects {
+  background: white;
+}
+
+.effects-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.effects-card {
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.effects-card.positive {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8f4);
+  border-left: 6px solid var(--primary-green);
+}
+
+.effects-card.negative {
+  background: linear-gradient(135deg, #fff3e0, #faf4ed);
+  border-left: 6px solid #d97706;
+}
+
+.effects-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.effects-card.positive h3 {
+  color: var(--primary-green);
+}
+
+.effects-card.negative h3 {
+  color: #d97706;
+}
+
+.effects-card ul {
+  list-style: none;
+}
+
+.effects-card li {
+  padding: 15px 0 15px 30px;
+  position: relative;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.effects-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.effects-card.negative li::before {
+  content: '!';
+  color: #d97706;
+}
+
+@media (max-width: 768px) {
+  .effects-layout {
+    grid-template-columns: 1fr;
+  }
+}
