@@ -4,7 +4,7 @@ import './Effects.css';
 const Effects = () => {
   return (
     <section className="effects">
-      <div className="container">
+      <div className="container"> 
         <h2 className="section-title">공간변화의 효과와 문제점</h2>
         <div className="effects-layout">
           <div className="effects-card positive">
