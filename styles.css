@@ -301,12 +301,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-
+    opacity: 0;
     transform: translateY(30px);
-}
-
-.stat-card.visible {
-    animation: slideInFromBottom 0.6s ease-out forwards;
 }
 
 .stat-card:nth-child(1).visible {
@@ -341,8 +337,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     color: var(--primary-green);
     margin-bottom: 15px;
+    opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-out;
+}
+
+.stat-card.visible {
+    opacity: 1;
+    animation: slideInFromBottom 0.6s ease-out forwards;
 }
 
 .stat-card.counted .stat-number {
@@ -512,9 +514,10 @@ h1, h2, h3, h4, h5, h6 {
     stroke: var(--primary-green);
     stroke-width: 3;
     stroke-linecap: round;
-    stroke-dasharray: 0 100;
-    animation: progress 2s ease-out forwards;
+    stroke-dasharray: 0, 100;
+    transform: rotate(-90deg);
     transform-origin: center;
+    transition: stroke-dasharray 1.5s ease-out;
 }
 
 .circular-chart .percentage {
@@ -545,12 +548,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-        transform: rotate(-90deg);
+    from {
+        stroke-dasharray: 0, 100;
     }
-    100% {
-        transform: rotate(-90deg);
+    to {
+        stroke-dasharray: var(--progress, 0), 100;
     }
 }
 
