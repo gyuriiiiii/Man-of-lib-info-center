@@ -2,8 +2,15 @@ import React from 'react';
 import './Hero.css';
 
 const Hero = () => {
+  const heroStyle = {
+    backgroundImage: 'url(/back.png)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  };
+
   return (
-    <section className="hero">
+    <section className="hero" style={heroStyle}>
       <div className="container">
         <h1 className="hero-title">대학도서관 공간변화 동향 및 인식 연구</h1>
         <p className="hero-subtitle">
