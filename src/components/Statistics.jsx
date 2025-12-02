@@ -31,14 +31,13 @@ const Statistics = () => {
               // Animate 61.6%
               let percent = 0;
               const interval3 = setInterval(() => {
-                percent += 200.0;
-                console.log(percent)
+                percent += 0.5;
                 setCounts((prev) => ({ ...prev, count3: Math.min(percent, 61.6) }));
                 if (percent >= 61.6) {
                   setCounts((prev) => ({ ...prev, count3: 61.6 }));
                   clearInterval(interval3);
                 }
-              }, 5);
+              }, 15);
             }, 200);
           }
         });
