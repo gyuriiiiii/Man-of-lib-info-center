@@ -54,32 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const chart = entry.target;
                 const percent = chart.getAttribute('data-percent');
                 const circle = chart.querySelector('.circle');
-                const percentageText = chart.querySelector('.percentage');
 
                 if (circle && percent) {
-                    // Animate the circle progress
+                    // Animate the circle progress bar filling up
                     setTimeout(() => {
                         circle.style.strokeDasharray = `${percent}, 100`;
                     }, 300);
-
-                    // Animate the percentage number
-                    if (percentageText) {
-                        let currentPercent = 0;
-                        const targetPercent = parseFloat(percent);
-                        const duration = 1500;
-                        const increment = targetPercent / (duration / 16);
-
-                        setTimeout(() => {
-                            const timer = setInterval(() => {
-                                currentPercent += increment;
-                                if (currentPercent >= targetPercent) {
-                                    currentPercent = targetPercent;
-                                    clearInterval(timer);
-                                }
-                                percentageText.textContent = currentPercent.toFixed(1) + '%';
-                            }, 16);
-                        }, 800);
-                    }
                 }
             }
         });

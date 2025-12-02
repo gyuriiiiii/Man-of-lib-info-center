@@ -208,6 +208,7 @@ h1, h2, h3, h4, h5, h6 {
 .card p {
     color: var(--text-gray);
     line-height: 1.8;
+    font-size: 1.3rem;
 }
 
 /* Importance Section */
@@ -241,6 +242,7 @@ h1, h2, h3, h4, h5, h6 {
     border-left: 4px solid var(--primary-green);
     border-radius: 8px;
     transition: all 0.3s ease;
+    font-size: 1.25rem;
 }
 
 .role-list li:hover {
@@ -274,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .importance-box p {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     line-height: 1.9;
 }
 
@@ -358,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-desc {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 1.25rem;
 }
 
 /* Key Features Section */
@@ -411,6 +413,7 @@ h1, h2, h3, h4, h5, h6 {
 .feature-item p {
     color: var(--text-gray);
     line-height: 1.7;
+    font-size: 1.25rem;
 }
 
 /* Survey Section */
@@ -448,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
 .survey-details li {
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
-    font-size: 1.05rem;
+    font-size: 1.35rem;
 }
 
 .survey-details li:last-child {
@@ -520,8 +523,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.5em;
     font-weight: 700;
     text-anchor: middle;
-    opacity: 0;
-    animation: fadeInText 0.5s ease-out 1.5s forwards;
 }
 
 .chart-label {
@@ -537,7 +538,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .chart-desc {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     line-height: 1.6;
     opacity: 0;
     transform: translateY(10px);
@@ -651,6 +652,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     line-height: 1.7;
     color: var(--text-dark);
+    font-size: 1.25rem;
 }
 
 .effects-card li::before {
@@ -741,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .level-content {
     flex: 1;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--text-dark);
 }
@@ -752,7 +754,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     line-height: 1.9;
     color: var(--text-gray);
-    font-size: 1.05rem;
+    font-size: 1.35rem;
     padding: 30px;
     background: white;
     border-radius: 12px;
@@ -807,6 +809,7 @@ h1, h2, h3, h4, h5, h6 {
 .direction-box p {
     color: var(--text-gray);
     line-height: 1.7;
+    font-size: 1.25rem;
 }
 
 .arrow {
@@ -901,6 +904,7 @@ h1, h2, h3, h4, h5, h6 {
 .conclusion-item p {
     color: var(--text-gray);
     line-height: 1.8;
+    font-size: 1.25rem;
 }
 
 .final-message {
@@ -912,7 +916,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .final-message p {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     line-height: 2;
     color: var(--text-dark);
 }
