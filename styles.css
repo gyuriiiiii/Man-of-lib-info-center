@@ -66,8 +66,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    background: url('/public/book.png') center/ cover  no-repeat;
-    color: white;
+    background: url('/public/book.jpg') center/ cover  no-repeat;
+    color: rgba(255, 255, 255, 0);
     min-height: 100vh;
     display: flex;
     align-items: center;
