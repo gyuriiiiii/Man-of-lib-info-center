@@ -6,6 +6,10 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background-image: url('/book.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -15,7 +19,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-
+  background-color: rgba(0, 0, 0, 0.4);
   pointer-events: none;
 }
 
