@@ -23,6 +23,23 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
+    // Observe section containers for green fade animation
+    const sectionContainers = document.querySelectorAll('.research-bg .container, .importance .container, .statistics .container, .key-features .container, .survey .container, .effects .container, .cause-analysis .container, .direction .container, .conclusion .container');
+    const sectionObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animate-in')) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    sectionContainers.forEach(container => {
+        sectionObserver.observe(container);
+    });
+
     // Smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

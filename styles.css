@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    background: url('/public/back.png') center/ cover  no-repeat;
+    background: url('/public/new.png') center/ cover  no-repeat;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -95,7 +95,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-    background-color: #e8f5e9;
+    background-color: rgba(224, 247, 255, 0.9);
+    color: #0d47a1;
     padding: 4px 8px;
     border-radius: 12px;
     font-size: 3.5rem;
@@ -105,7 +106,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
-    background-color: #666666;
+    background-color: rgba(179, 229, 252, 0.85);
+    color: #01579b;
     padding: 4px 8px;
     border-radius: 12px;
     font-size: 1.3rem;
@@ -178,6 +180,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--bg-light);
 }
 
+.research-bg .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.research-bg .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
+}
+
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -214,6 +225,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Importance Section */
 .importance {
     background: white;
+}
+
+.importance .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.importance .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
 }
 
 .split-layout {
@@ -283,6 +303,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Statistics Section */
 .statistics {
     background: var(--bg-light);
+}
+
+.statistics .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.statistics .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
 }
 
 .stats-grid {
@@ -369,6 +398,15 @@ h1, h2, h3, h4, h5, h6 {
     background: white;
 }
 
+.key-features .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.key-features .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -420,6 +458,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Survey Section */
 .survey {
     background: var(--bg-light);
+}
+
+.survey .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.survey .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
 }
 
 .survey-info {
@@ -606,6 +653,15 @@ h1, h2, h3, h4, h5, h6 {
     background: white;
 }
 
+.effects .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.effects .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
+}
+
 .effects-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -674,6 +730,15 @@ h1, h2, h3, h4, h5, h6 {
 .cause-analysis {
     background: var(--bg-light);
     padding: 100px 0;
+}
+
+.cause-analysis .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.cause-analysis .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
 }
 
 .pyramid {
@@ -768,6 +833,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 100px 0;
 }
 
+.direction .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.direction .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
+}
+
 .direction-flow {
     display: flex;
     align-items: center;
@@ -847,6 +921,15 @@ h1, h2, h3, h4, h5, h6 {
 .conclusion {
     background: var(--bg-light);
     padding: 100px 0;
+}
+
+.conclusion .container {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.conclusion .container.animate-in {
+    animation: slideUpWithGreenFade 1.5s ease-out forwards;
 }
 
 .conclusion-subtitle {
@@ -942,6 +1025,17 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(30px);
     }
     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpWithGreenFade {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
