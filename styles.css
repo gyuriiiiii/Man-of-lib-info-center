@@ -418,41 +418,89 @@ h1, h2, h3, h4, h5, h6 {
     padding: 35px 25px;
     background: var(--bg-light);
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.feature-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-item:nth-child(1) { transition-delay: 0.1s; }
+.feature-item:nth-child(2) { transition-delay: 0.15s; }
+.feature-item:nth-child(3) { transition-delay: 0.2s; }
+.feature-item:nth-child(4) { transition-delay: 0.25s; }
+.feature-item:nth-child(5) { transition-delay: 0.3s; }
+.feature-item:nth-child(6) { transition-delay: 0.35s; }
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(45, 95, 63, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.feature-item:hover::before {
+    left: 100%;
 }
 
 .feature-item:hover {
     background: white;
     border-color: var(--primary-green);
-    box-shadow: var(--shadow);
-    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(45, 95, 63, 0.15);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .feature-number {
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    background: var(--primary-green);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
     color: white;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 55px;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(45, 95, 63, 0.25);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-number {
+    transform: scale(1.15) rotate(360deg);
+    box-shadow: 0 6px 20px rgba(45, 95, 63, 0.4);
 }
 
 .feature-item h3 {
     color: var(--primary-green);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover h3 {
+    color: var(--dark-green);
 }
 
 .feature-item p {
     color: var(--text-gray);
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover p {
+    color: var(--text-dark);
 }
 
 /* Survey Section */
