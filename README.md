@@ -2,6 +2,12 @@
 
 React와 CSS를 활용한 인터랙티브 웹 애플리케이션입니다.
 
+<img width="1710" height="829" alt="Image" src="https://github.com/user-attachments/assets/223bc6b2-fd46-4af4-9e88-cfca89bf4ce1" />
+
+<img width="1710" height="929" alt="Image" src="https://github.com/user-attachments/assets/f912a3f5-3bb1-42a1-9411-cb62938c5456" />
+
+<img width="1710" height="843" alt="Image" src="https://github.com/user-attachments/assets/0828339b-507a-4513-b03a-d694aa151601" />
+
 ## 프로젝트 구조
 
 ```
